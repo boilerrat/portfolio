@@ -1,5 +1,5 @@
 import React from 'react';
-import { Atom, Database, Shield, Binary, Users, Award, Wrench, Factory, Power, Coins } from 'lucide-react';
+import { Atom, Database, Shield, Users, Wrench, Factory, Power, Coins } from 'lucide-react';
 import { ExpertiseProps, ExperienceCardProps, SectionProps } from './types';
 import { ExperienceItem } from '../../types';
 
@@ -75,10 +75,10 @@ const defaultNuclearExperience: ExperienceItem[] = [
     icon: Shield
   },
   {
-    title: "Nuclear Maintenance and Refurbishment",
+    title: "Nuclear Operations",
     company: "Multiple Nuclear Facilities",
     period: "2003 - Present",
-    description: "20 years of nuclear experience including Pickering, Darlington, and Bruce Power. Specialized focus on reactor refurbishment and maintenance",
+    description: "20 years of nuclear experience including Pickering, Darlington, and Bruce Power. Specialized focus on reactor refurbishment and radiation protection for the last 8 years.",
     icon: Power
   }
 ];
@@ -88,7 +88,7 @@ const defaultWeb3Experience: ExperienceItem[] = [
     title: "DAO Governance Lead",
     company: "Public HAUS",
     period: "2022 - Present",
-    description: "Secured $300K+ in grants through governance proposals to Moloch DAO, Optimism, Plurality Labs and Public Nouns. Pioneering governance frameworks and community development initiatives.",
+    description: "Secured $197K in grants through strategic partnerships with Moloch DAO, Optimism, and Public Nouns. Pioneering governance frameworks and community development initiatives.",
     icon: Users
   },
   {
