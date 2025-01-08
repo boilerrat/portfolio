@@ -5,19 +5,19 @@ import { AchievementsProps, GrantChartProps, AchievementCardProps, TooltipProps 
 import { Grant, Achievement } from '../../types';
 
 const defaultGrants: Grant[] = [
-  { name: 'DAOMasons(Plurality Labs)', amount: 150000, color: '#2aae91' },
-  { name: 'DAOHaus(Moloch DAO)', amount: 90000, color: '#6366f1' },
-  { name: 'DAOhaus(Optimism)', amount: 90000, color: '#ec4899' },
-  { name: 'Farcastle(Public Nouns)', amount: 17000, color: '#06b6d4' },
+  { name: 'DAOMasons (Plurality Labs)', amount: 150000, color: '#2aae91' },
+  { name: 'DAOHaus (Moloch DAO)', amount: 90000, color: '#6366f1' },
+  { name: 'DAOhaus (Optimism)', amount: 90000, color: '#ec4899' },
+  { name: 'Farcastle (Public Nouns)', amount: 17000, color: '#06b6d4' },
 ];
 
 const defaultAchievements: Achievement[] = [
   { title: "Grant Ships Launch", description: "Distributed $100K ARB tokens to fund Web3 game development on Arbitrum", date: "2024" },
-  { title: "DAO Masons", description: "Co-founded DAO Masons, a product and sevices DAO, designed to make DAOs better", date: "2023" },
+  { title: "DAO Masons", description: "Co-founded DAO Masons, a product and services DAO, designed to make DAOs better", date: "2023" },
   { title: "Public HAUS Champion", description: "Led governance activities and secured multiple major grants", date: "2022" },
-  { title: "Metaguide", description: "Guided Web3 projects in securing grants, building communities, and facilitating funding for innovative blockchain initiatives.", date: "2021" },
+  { title: "Metaguide", description: "Guided Web3 projects in securing grants, building communities, and facilitating funding for blockchain initiatives.", date: "2021" },
   { title: "Radiation Protection Technician: EPRI Certification", description: "Qualified as Radiation Protection Technician at OPG and later at Bruce Power", date: "2016/2019" },
-  { title: "Boilermaker Red Seal", description: "Completed Boilermaker apprenticship and passed Red Seal Exam", date: "2006" },
+  { title: "Boilermaker Red Seal", description: "Completed Boilermaker apprenticeship and passed Red Seal Exam", date: "2006" },
 ];
 
 const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
@@ -41,7 +41,7 @@ interface CustomYAxisTickProps {
 const CustomYAxisTick: React.FC<CustomYAxisTickProps> = ({ x, y, payload }) => {
   const truncatedText = payload.value.length > 20 ? `${payload.value.slice(0, 20)}...` : payload.value;
   return (
-    <text x={x} y={y} fill="#FFFFFF" fontSize={12} dy={5} textAnchor="end">
+    <text x={x - 10} y={y} fill="#FFFFFF" fontSize={12} dy={5} textAnchor="end">
       {truncatedText}
     </text>
   );
@@ -51,8 +51,20 @@ const GrantChart: React.FC<GrantChartProps> = ({ data, className = '' }) => (
   <div className={`bg-gray-900 rounded-lg p-6 h-80 ${className}`}>
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data} layout="vertical">
-        <XAxis type="number" domain={[0, 150000]} tickFormatter={(val) => `$${val.toLocaleString()}`} />
-        <YAxis dataKey="name" type="category" width={200} tick={CustomYAxisTick} />
+        <XAxis
+          type="number"
+          domain={[0, 150000]}
+          tickFormatter={(val) => `$${val.toLocaleString()}`}
+          axisLine={false}
+          tickLine={false}
+        />
+        <YAxis
+            dataKey="name"
+            type="category"
+            width={200}
+            tick={(props) => <CustomYAxisTick {...props} />}
+        />
+
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="amount" fill="#3b82f6" radius={[0, 4, 4, 0]} />
       </BarChart>

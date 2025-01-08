@@ -12,7 +12,7 @@ const defaultIntroText = `> const profile = {
   ],
   expertise: {
     nuclear: "19+ years in Radiation Protection",
-    web3: "Lead multiple DAOs, $150K+ in grants"
+    web3: "Lead multiple DAOs, $300K+ in grants"
   }
 };`;
 
