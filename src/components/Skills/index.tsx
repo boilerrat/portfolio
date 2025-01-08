@@ -2,16 +2,15 @@ import type { FC } from 'react';
 import { ChevronRight } from 'lucide-react';
 import type { SkillsProps, SkillCardProps, SkillBarProps, Skill } from './types';
 
-const SkillBar: FC<SkillBarProps> = ({ 
-  level, 
+const SkillBar: FC<SkillBarProps> = ({
+  level,
   maxLevel = 5,
   className = ''
 }) => {
   const percentage = (level / maxLevel) * 100;
-  
   return (
     <div className={`h-2 w-32 bg-gray-800 rounded-full overflow-hidden ${className}`}>
-      <div 
+      <div
         className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform origin-left transition-transform duration-1000 ease-out"
         style={{ transform: `scaleX(${percentage / 100})` }}
       />
@@ -19,9 +18,9 @@ const SkillBar: FC<SkillBarProps> = ({
   );
 };
 
-const SkillCard: FC<SkillCardProps> = ({ 
+const SkillCard: FC<SkillCardProps> = ({
   skill,
-  className = '' 
+  className = ''
 }) => (
   <div className={`bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-all duration-300 ${className}`}>
     <div className="flex items-center justify-between mb-4">
@@ -120,13 +119,13 @@ export const Skills: FC<SkillsProps> = ({
 }) => {
   return (
     <section id="skills" className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-6xl mx-auto">
-                <div className="flex items-center gap-4">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <div className="flex items-center gap-4">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
             Professional Skills
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           {skills.map((skill, index) => (
             <SkillCard key={index} skill={skill} />
           ))}
@@ -135,3 +134,5 @@ export const Skills: FC<SkillsProps> = ({
     </section>
   );
 };
+
+export default Skills;

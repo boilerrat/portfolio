@@ -1,5 +1,5 @@
 import React from 'react';
-import { Atom, Database, Shield, Binary, Users, Award } from 'lucide-react';
+import { Atom, Database, Shield, Binary, Users, Award, Wrench, Factory, Power, Coins } from 'lucide-react';
 import { ExpertiseProps, ExperienceCardProps, SectionProps } from './types';
 import { ExperienceItem } from '../../types';
 
@@ -49,37 +49,54 @@ const Section: React.FC<SectionProps> = ({
   </section>
 );
 
+const defaultIndustryExperience: ExperienceItem[] = [
+  {
+    title: "Journeyman Boilermaker",
+    company: "International Brotherhood of Boilermakers",
+    period: "2003 - Present",
+    description: "Two decades of experience across industrial sectors, specializing in pressure vessels, heat exchangers, and critical infrastructure. Led teams in major projects nationwide.",
+    icon: Wrench
+  },
+  {
+    title: "Industrial Operations",
+    company: "Multiple Sectors",
+    period: "2003 - Present",
+    description: "Extensive experience in oil refineries, steel mills, and power generation facilities. Specialized in maintenance, repairs, and large-scale equipment installations.",
+    icon: Factory
+  }
+];
+
 const defaultNuclearExperience: ExperienceItem[] = [
   {
     title: "Radiation Protection",
     company: "Makwa-Cahill/Nuvia",
     period: "2019 - Present",
-    description: "Delivering comprehensive Radiation Protection services for Bruce Nuclear's Major Component Replacement Project.",
+    description: "Lead Radiation Protection Specialist for Bruce Nuclear's Major Component Replacement Project. Managing radiological safety for one of North America's largest nuclear refurbishment projects.",
     icon: Shield
   },
   {
-    title: "Journeyman Boilermaker",
-    company: "International Brotherhood of Boilermakers",
+    title: "Nuclear Maintenance and Refurbishment",
+    company: "Multiple Nuclear Facilities",
     period: "2003 - Present",
-    description: "Leading diverse projects in nuclear facilities, focusing on reactor refurbishment at top facilities.",
-    icon: Binary
+    description: "20 years of nuclear experience including Pickering, Darlington, and Bruce Power. Specialized focus on reactor refurbishment and maintenance",
+    icon: Power
   }
 ];
 
 const defaultWeb3Experience: ExperienceItem[] = [
   {
-    title: "Public HAUS Champion",
+    title: "DAO Governance Lead",
     company: "Public HAUS",
     period: "2022 - Present",
-    description: "Secured $197K in grants from Moloch DAO, Optimism, and Public Nouns. Leading onboarding and governance.",
+    description: "Secured $300K+ in grants through governance proposals to Moloch DAO, Optimism, Plurality Labs and Public Nouns. Pioneering governance frameworks and community development initiatives.",
     icon: Users
   },
   {
-    title: "Founder",
-    company: "DAO Masons",
+    title: "Web3 Innovation",
+    company: "DAO Masons & MetaCartel",
     period: "2022 - 2024",
-    description: "Distributed $100K ARB tokens through Grant Ships, empowering decentralized organizations.",
-    icon: Award
+    description: "Founded DAO Masons, led Grant Ships program distributing $100K ARB tokens. Active contributor to MetaCartel, driving Web3 adoption and innovation in DAOs.",
+    icon: Coins
   }
 ];
 
@@ -91,6 +108,16 @@ export const Expertise: React.FC<ExpertiseProps> = ({
   return (
     <div className={`min-h-screen bg-black text-white p-8 ${className}`}>
       <div className="max-w-6xl mx-auto space-y-16">
+        {/* Industry Section */}
+        <Section
+          id="industry"
+          title="Industrial Expertise"
+          icon={Factory}
+          items={defaultIndustryExperience}
+          gradientFrom="blue-500"
+          gradientTo="purple-500"
+        />
+        
         {/* Nuclear Section */}
         <Section
           id="nuclear"
@@ -114,3 +141,5 @@ export const Expertise: React.FC<ExpertiseProps> = ({
     </div>
   );
 };
+
+export default Expertise;

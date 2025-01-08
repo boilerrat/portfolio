@@ -62,11 +62,13 @@ export const Contact: FC<ContactProps> = ({
 }) => {
   return (
     <section id="contact" className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-4xl mx-auto space-y-16">
-      <h2 className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-          Connect With Me
-        </h2>
-        <div className="grid gap-12">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <div className="flex items-center gap-4">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
+            Connect With Me
+          </h2>
+        </div>
+        <div className="grid gap-12 mt-8">
           {socialLinks.map((category, index) => (
             <CategorySection
               key={index}
@@ -99,7 +101,7 @@ const defaultSocialLinks = [
       {
         name: "Resume",
         icon: MdLanguage,
-        url: "//https://rxresu.me/boilerrat/victorious-present-lungfish",
+        url: "https://rxresu.me/boilerrat/victorious-present-lungfish",
         username: "Download PDF"
       }
     ]
@@ -128,7 +130,8 @@ const defaultSocialLinks = [
       {
         name: "Telegram",
         icon: FaTelegram,
-        url: "https://t.me/boilerrat"
+        url: "https://t.me/boilerrat",
+        username: "@boilerrat"
       },
       {
         name: "Farcaster",
@@ -138,11 +141,12 @@ const defaultSocialLinks = [
       },
       {
         name: "Lens",
-        icon: BiSearch, // You might want to find a more specific Lens icon
+        icon: BiSearch,
         url: "https://lenster.xyz/u/boilerrat",
         username: "boilerrat"
       }
     ]
-  },
-
+  }
 ];
+
+export default Contact;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Home, Atom, Database, Award, Image, User } from 'lucide-react';
+import { Home, Atom, Database, Award, Image, User, Factory } from 'lucide-react';
 import { NavItem } from '../../types';
 import { NavigationProps, ScrollState } from './types';
 
@@ -15,6 +15,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   const defaultNavItems: NavItem[] = [
     { id: 'home', icon: Home, label: 'Home' },
+    { id: 'industry', icon: Factory, label: 'Industry' },
     { id: 'nuclear', icon: Atom, label: 'Nuclear' },
     { id: 'web3', icon: Database, label: 'Web3' },
     { id: 'achievements', icon: Award, label: 'Achievements' },
@@ -93,3 +94,5 @@ export const Navigation: React.FC<NavigationProps> = ({
     </nav>
   );
 };
+
+export default Navigation;

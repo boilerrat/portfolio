@@ -7,12 +7,14 @@ const defaultIntroText = `> const profile = {
   alias: "boilerrat",
   roles: [
     "Radiation Protection Specialist",
+    "Journeyman Boilermaker",
     "Web3 Innovator",
     "DAO Designer"
   ],
   expertise: {
-    nuclear: "19+ years in Radiation Protection",
-    web3: "Lead multiple DAOs, $300K+ in grants"
+    boilermaker: "20+ years across industrial sectors, nationwide experience",
+    nuclear: "20 years total, 8 years specialized in radiation protection",
+    web3: "Lead multiple DAOs, $300K+ in grants secured and distributed"
   }
 };`;
 
@@ -42,7 +44,7 @@ const quickLinks: QuickLink[] = [
   }
 ];
 
-export const Hero: React.FC<HeroProps> = ({ 
+export const Hero: React.FC<HeroProps> = ({
   className = '',
   customIntroText
 }) => {
@@ -95,10 +97,10 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="space-y-8 opacity-0 animate-fade-in">
             <div className="text-center">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-4">
-                Bridging Nuclear & Web3
+                Bridging Industry & Web3
               </h1>
               <p className="text-gray-400 text-lg">
-                Building the future of decentralized governance while ensuring nuclear safety
+                Bringing decades of industrial expertise to decentralized innovation
               </p>
             </div>
 
@@ -122,3 +124,5 @@ export const Hero: React.FC<HeroProps> = ({
     </div>
   );
 };
+
+export default Hero;
