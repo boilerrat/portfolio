@@ -10,12 +10,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   period,
   description,
   className = '',
-  gradientFrom // Add this to customize the icon color
+  gradientFrom
 }) => (
   <div className={`bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 ${className}`}>
     <div className="flex items-start gap-4">
       <div className={`p-3 bg-${gradientFrom}/10 rounded-lg`}>
-        <Icon className={`text-${gradientFrom}`} size={24} />
+        <Icon size={24} className={`text-${gradientFrom}`} />
       </div>
       <div>
         <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -86,14 +86,14 @@ const defaultNuclearExperience: ExperienceItem[] = [
 
 const defaultWeb3Experience: ExperienceItem[] = [
   {
-    title: "DAO Governance Lead",
+    title: "DAO Governance and Operations",
     company: "Public HAUS",
     period: "2022 - Present",
     description: "Secured $197K in grants through strategic partnerships with Moloch DAO, Optimism, and Public Nouns. Pioneering governance frameworks and community development initiatives.",
     icon: Users
   },
   {
-    title: "Web3 Innovation",
+    title: "Web3 Contributor",
     company: "DAO Masons & MetaCartel",
     period: "2022 - 2024",
     description: "Founded DAO Masons, led Grant Ships program distributing $100K ARB tokens. Active contributor to MetaCartel, driving Web3 adoption and innovation in DAOs.",
@@ -109,7 +109,6 @@ export const Expertise: React.FC<ExpertiseProps> = ({
   return (
     <div className={`min-h-screen bg-black text-white p-8 ${className}`}>
       <div className="max-w-6xl mx-auto space-y-16">
-        {/* Industry Section */}
         <Section
           id="industry"
           title="Industrial Expertise"
@@ -119,17 +118,15 @@ export const Expertise: React.FC<ExpertiseProps> = ({
           gradientTo="indigo-500"
         />
         
-        {/* Nuclear Section */}
         <Section
           id="nuclear"
           title="Nuclear Expertise"
           icon={Atom}
           items={nuclearExperience}
-          gradientFrom="blue-600"
-          gradientTo="emerald-400"
+          gradientFrom="emerald-400"
+          gradientTo="blue-500"
         />
 
-        {/* Web3 Section */}
         <Section
           id="web3"
           title="Web3 Innovation"

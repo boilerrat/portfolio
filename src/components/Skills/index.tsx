@@ -3,20 +3,20 @@ import { ChevronRight } from 'lucide-react';
 import type { SkillsProps, SkillCardProps, SkillBarProps, Skill } from './types';
 
 const SkillBar: FC<SkillBarProps> = ({
-  level,
-  maxLevel = 5,
-  className = ''
-}) => {
-  const percentage = (level / maxLevel) * 100;
-  return (
-    <div className={`h-2 w-32 bg-gray-800 rounded-full overflow-hidden ${className}`}>
-      <div
-        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform origin-left transition-transform duration-1000 ease-out"
-        style={{ transform: `scaleX(${percentage / 100})` }}
-      />
-    </div>
-  );
-};
+    level,
+    maxLevel = 5,
+    className = ''
+  }) => {
+    const percentage = (level / maxLevel) * 100;
+    return (
+      <div className={`h-2 w-32 bg-gray-800 rounded-full overflow-hidden ${className}`}>
+        <div
+          className="h-full bg-gradient-to-r from-emerald-400 to-cyan-500 rounded-full transform origin-left transition-transform duration-1000 ease-out"
+          style={{ transform: `scaleX(${percentage / 100})` }}
+        />
+      </div>
+    );
+  };
 
 const SkillCard: FC<SkillCardProps> = ({
   skill,
@@ -114,25 +114,25 @@ const defaultSkills: Skill[] = [
 ];
 
 export const Skills: FC<SkillsProps> = ({
-  className = '',
-  skills = defaultSkills
-}) => {
-  return (
-    <section id="skills" className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-6xl mx-auto space-y-8">
-        <div className="flex items-center gap-4">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Professional Skills
-          </h2>
+    className = '',
+    skills = defaultSkills
+  }) => {
+    return (
+      <section id="skills" className={`min-h-screen bg-black text-white p-8 ${className}`}>
+        <div className="max-w-6xl mx-auto space-y-8">
+          <div className="flex items-center gap-4">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent">
+              Professional Skills
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            {skills.map((skill, index) => (
+              <SkillCard key={index} skill={skill} />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-          {skills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  };
 
 export default Skills;

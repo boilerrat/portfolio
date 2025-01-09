@@ -4,6 +4,24 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    {
+      pattern: /from-(cyan|emerald|purple|blue|indigo|pink)-(400|500)/,
+      variants: ['hover', 'focus'],
+    },
+    {
+      pattern: /to-(indigo|blue|pink)-(400|500)/,
+      variants: ['hover', 'focus'],
+    },
+    {
+      pattern: /bg-(cyan|emerald|purple|blue|indigo|pink)-(400|500)\/10/,
+      variants: ['hover', 'focus'],
+    },
+    {
+      pattern: /text-(cyan|emerald|purple|blue|indigo|pink)-(400|500)/,
+      variants: ['hover', 'focus'],
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {
