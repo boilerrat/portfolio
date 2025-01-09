@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Terminal, ExternalLink, AtSign, Calendar, Binary } from 'lucide-react';
+import { SiFarcaster } from "react-icons/si";
 import { HeroProps, QuickLink, AnimationState } from './types';
 
 const defaultIntroText = `> const profile = {
   name: "Christopher Wylde",
-  alias: "boilerrat",
+  alias: "boiler, boilerrat",
   roles: [
     "Radiation Protection Specialist",
     "Journeyman Boilermaker",
@@ -27,7 +28,7 @@ const quickLinks: QuickLink[] = [
   },
   {
     icon: AtSign,
-    label: "Contact",
+    label: "email",
     href: "mailto:128boilerrat@gmail.com"
   },
   {
@@ -37,9 +38,9 @@ const quickLinks: QuickLink[] = [
     external: true
   },
   {
-    icon: Binary,
-    label: "DAO Masons",
-    href: "https://www.daomasons.com",
+    icon: SiFarcaster,
+    label: "DM on Warpcast",
+    href: "https://www.warpcast.com/boiler",
     external: true
   }
 ];

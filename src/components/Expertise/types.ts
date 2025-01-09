@@ -9,6 +9,7 @@ export interface ExpertiseProps {
 
 export interface ExperienceCardProps extends ExperienceItem {
   className?: string;
+  gradientFrom?: string;  // Add this for icon color customization
 }
 
 export interface SectionProps {

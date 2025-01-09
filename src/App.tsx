@@ -9,14 +9,18 @@ import { Contact } from './components/Contact';
 
 const App: FC = () => {
   return (
-    <div className="bg-black">
+    // Add base font for general content
+    <div className="bg-black font-['Space_Mono']">
+      {/* Navigation can use Space Mono for clean reading */}
       <Navigation />
       
       <main className="relative">
-        <section id="home" className="relative z-10">
+        {/* Hero section uses Courier Prime for the terminal look */}
+        <section id="home" className="relative z-10 font-['Courier_Prime']">
           <Hero />
         </section>
 
+        {/* Content sections use Space Mono for better readability */}
         <div className="relative z-10">
           <Expertise />
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Atom, Database, Shield, Users, Wrench, Factory, Power, Coins } from 'lucide-react';
+import { Atom, Database, Shield, Users, Wrench, Factory, Coins, BatteryCharging } from 'lucide-react';
 import { ExpertiseProps, ExperienceCardProps, SectionProps } from './types';
 import { ExperienceItem } from '../../types';
 
@@ -9,12 +9,13 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   company,
   period,
   description,
-  className = ''
+  className = '',
+  gradientFrom // Add this to customize the icon color
 }) => (
   <div className={`bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-colors duration-300 ${className}`}>
     <div className="flex items-start gap-4">
-      <div className="p-3 bg-blue-500/10 rounded-lg">
-        <Icon className="text-blue-500" size={24} />
+      <div className={`p-3 bg-${gradientFrom}/10 rounded-lg`}>
+        <Icon className={`text-${gradientFrom}`} size={24} />
       </div>
       <div>
         <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -43,7 +44,7 @@ const Section: React.FC<SectionProps> = ({
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {items.map((exp, index) => (
-        <ExperienceCard key={index} {...exp} />
+        <ExperienceCard key={index} {...exp} gradientFrom={gradientFrom} />
       ))}
     </div>
   </section>
@@ -58,7 +59,7 @@ const defaultIndustryExperience: ExperienceItem[] = [
     icon: Wrench
   },
   {
-    title: "Industrial Operations",
+    title: "Industrial Maintenance and Construction",
     company: "Multiple Sectors",
     period: "2003 - Present",
     description: "Extensive experience in oil refineries, steel mills, and power generation facilities. Specialized in maintenance, repairs, and large-scale equipment installations.",
@@ -71,15 +72,15 @@ const defaultNuclearExperience: ExperienceItem[] = [
     title: "Radiation Protection",
     company: "Makwa-Cahill/Nuvia",
     period: "2019 - Present",
-    description: "Lead Radiation Protection Specialist for Bruce Nuclear's Major Component Replacement Project. Managing radiological safety for one of North America's largest nuclear refurbishment projects.",
+    description: "Radiation Protection Technician for Bruce Nuclear's Major Component Replacement Project. Managing radiological safety for one of North America's largest nuclear refurbishment projects.",
     icon: Shield
   },
   {
-    title: "Nuclear Operations",
+    title: "Nuclear Maintenance and Refurbishment",
     company: "Multiple Nuclear Facilities",
     period: "2003 - Present",
     description: "20 years of nuclear experience including Pickering, Darlington, and Bruce Power. Specialized focus on reactor refurbishment and radiation protection for the last 8 years.",
-    icon: Power
+    icon: BatteryCharging
   }
 ];
 
@@ -114,8 +115,8 @@ export const Expertise: React.FC<ExpertiseProps> = ({
           title="Industrial Expertise"
           icon={Factory}
           items={defaultIndustryExperience}
-          gradientFrom="blue-500"
-          gradientTo="purple-500"
+          gradientFrom="cyan-500"
+          gradientTo="indigo-500"
         />
         
         {/* Nuclear Section */}
@@ -124,8 +125,8 @@ export const Expertise: React.FC<ExpertiseProps> = ({
           title="Nuclear Expertise"
           icon={Atom}
           items={nuclearExperience}
-          gradientFrom="blue-500"
-          gradientTo="purple-500"
+          gradientFrom="blue-600"
+          gradientTo="emerald-400"
         />
 
         {/* Web3 Section */}
@@ -134,8 +135,8 @@ export const Expertise: React.FC<ExpertiseProps> = ({
           title="Web3 Innovation"
           icon={Database}
           items={web3Experience}
-          gradientFrom="blue-500"
-          gradientTo="purple-500"
+          gradientFrom="purple-500"
+          gradientTo="pink-500"
         />
       </div>
     </div>

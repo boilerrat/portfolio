@@ -34,6 +34,12 @@ export interface TooltipProps {
   }>;
 }
 
+export interface Skills {
+    title: string;
+    description: string;
+    date: string;
+}
+
 export interface NFT {
   id: number;
   image: string;

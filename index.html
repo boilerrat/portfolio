@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Primary favicon -->
-    <link rel="icon" type="image/png" href="https://i.imgur.com/Clv3Y1d.png" />
-    
-    <!-- iOS/macOS icons -->
-    <link rel="apple-touch-icon" href="https://i.imgur.com/Clv3Y1d.png" />
-    <link rel="mask-icon" href="https://i.imgur.com/Clv3Y1d.png" color="#000000" />
-    
-    <!-- Windows/IE -->
-    <meta name="msapplication-TileImage" content="https://i.imgur.com/Clv3Y1d.png" />
-    <meta name="msapplication-TileColor" content="#000000" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
-    
-    <!-- SEO meta tags -->
-    <title>Chris Wylde | Web3 Futurist</title>
-    <meta name="description" content="Web3 Futurist, Nuclear Professional, and DAO Designer" />
-    <meta name="keywords" content="Web3, Nuclear, DAO, Blockchain, Radiation Protection" />
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Chris Wylde | Web3 Futurist" />
-    <meta property="og:description" content="Web3 Futurist, Nuclear Professional, and DAO Designer" />
-    <meta property="og:image" content="https://i.imgur.com/Clv3Y1d.png" />
-    <meta property="og:url" content="https://www.chriswylde.xyz" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <!-- Preload critical fonts -->
+  <link 
+    rel="preload" 
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"
+    as="style"
+  />
+  <link 
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+    as="style"
+  />
+  
+  <!-- Load fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Primary favicon -->
+  <link rel="icon" type="image/png" href="https://i.imgur.com/Clv3Y1d.png" />
+  <!-- iOS/macOS icons -->
+  <link rel="apple-touch-icon" href="https://i.imgur.com/Clv3Y1d.png" />
+  <link rel="mask-icon" href="https://i.imgur.com/Clv3Y1d.png" color="#000000" />
+  <!-- Windows/IE -->
+  <meta name="msapplication-TileImage" content="https://i.imgur.com/Clv3Y1d.png" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  
+  <!-- Viewport and theme -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  
+  <!-- SEO meta tags -->
+  <title>Chris Wylde | Web3 Futurist</title>
+  <meta name="description" content="Web3 Futurist, Nuclear Professional, and DAO Designer" />
+  <meta name="keywords" content="Web3, Nuclear, DAO, Blockchain, Radiation Protection, Boilermaker" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chris Wylde | Web3 Futurist" />
+  <meta property="og:description" content="Web3 Futurist, Nuclear Professional, and DAO Designer" />
+  <meta property="og:image" content="https://i.imgur.com/Clv3Y1d.png" />
+  <meta property="og:url" content="https://www.chriswylde.xyz" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chris Wylde | Web3 Futurist" />
+  <meta name="twitter:description" content="Web3 Futurist, Nuclear Professional, and DAO Designer" />
+  <meta name="twitter:image" content="https://i.imgur.com/Clv3Y1d.png" />
+
+  <!-- Font display optimization -->
+  <style>
+    .font-courier-prime {
+      font-family: 'Courier Prime', monospace;
+    }
+    .font-space-mono {
+      font-family: 'Space Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
