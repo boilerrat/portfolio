@@ -5,7 +5,7 @@ import type { ReactorStatusProps, TooltipProps, PriceStat } from './types';
 import { getEthereumData, formatPrice, getHighLowPrices, formatVolume } from '../../utils/api';
 
 const statusMessages = [
-  'Staking valves open',
+  'Mining blocks... literally',
   'Consensus achieved',
   'Smart contracts cooling',
   'Tokens well-contained',
@@ -31,7 +31,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
   return null;
 };
 
-const ReactorStatus = ({ className = '' }: ReactorStatusProps) => {
+export const ReactorStatus = ({ className = '' }: ReactorStatusProps) => {
   const [power, setPower] = useState(0);
   const [status, setStatus] = useState('Initializing...');
   const [isAnimating, setIsAnimating] = useState(false);
@@ -112,157 +112,139 @@ const ReactorStatus = ({ className = '' }: ReactorStatusProps) => {
     { label: 'Rad Level', value: '0.12 μSv' }
   ];
 
-  const renderPriceChart = () => {
-    if (loading) {
-      return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-blue-500 flex items-center gap-2">
-            <Atom className="animate-spin" size={20} />
-            <span>Loading price data...</span>
-          </div>
-        </div>
-      );
-    }
-
-    if (error) {
-      return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-red-500">{error}</div>
-        </div>
-      );
-    }
-
-    if (!priceData.length) {
-      return (
-        <div className="flex items-center justify-center h-full">
-          <div className="text-gray-400">No price data available</div>
-        </div>
-      );
-    }
-
-    return (
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={priceData}>
-          <XAxis 
-            dataKey="time"
-            stroke="#4B5563"
-            tick={{ fill: '#9CA3AF', fontSize: 12 }}
-            tickFormatter={(timestamp) => new Date(timestamp).toLocaleTimeString()}
-          />
-          <YAxis 
-            stroke="#4B5563"
-            tick={{ fill: '#9CA3AF', fontSize: 12 }}
-            domain={['auto', 'auto']}
-            tickFormatter={(value) => formatPrice(value)}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <Line 
-            type="monotone" 
-            dataKey="price" 
-            stroke="#3B82F6" 
-            strokeWidth={2}
-            dot={false}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    );
-  };
-
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${className}`}>
-      {/* Reactor Status Panel */}
-      <div className="bg-gray-900 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <Atom className="text-blue-500 animate-spin" />
-            <h3 className="text-lg font-bold text-white">Reactor Status</h3>
-          </div>
-          <div className="flex items-center gap-2">
-            <Activity className="text-green-500" />
-            <span className="text-sm text-gray-400">
-              {currentTime.toLocaleTimeString()}
-            </span>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          {/* Power Level */}
-          <div className="bg-gray-800 rounded-lg p-4">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-gray-400">Power Level</span>
-              <Power className="text-blue-500" />
-            </div>
-            <div className="relative h-4 bg-gray-700 rounded-full overflow-hidden">
-              <div 
-                className="absolute h-full bg-blue-500 transition-all duration-1000"
-                style={{ width: `${power}%` }}
-              />
-            </div>
-            <div className="mt-2 text-right text-sm text-gray-400">
-              {power.toFixed(1)}% Capacity
-            </div>
-          </div>
-
-          {/* Status Message */}
-          <div className="bg-gray-800 rounded-lg p-4">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-gray-400">Current Status</span>
-              <Coffee className="text-green-500" />
-            </div>
-            <div className={`text-lg font-medium text-blue-400 ${isAnimating ? 'animate-pulse' : ''}`}>
-              {status}
-            </div>
-          </div>
-
-          {/* Activity Indicators */}
-          <div className="grid grid-cols-3 gap-4">
-            {statusIndicators.map((item, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-3 text-center">
-                <div className="text-sm text-gray-400">{item.label}</div>
-                <div className="text-white font-medium">{item.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ETH Price Monitor */}
-      <div className="bg-gray-900 rounded-lg p-6">
-        <div className="space-y-4 mb-6">
-          <div className="flex items-center justify-between">
+    <div className="max-w-6xl mx-auto">
+      <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${className}`}>
+        {/* Reactor Status Panel */}
+        <div className="bg-gray-900 rounded-lg p-6">
+          <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <TrendingUp className="text-blue-500" />
-              <h3 className="text-lg font-bold text-white">ETH Price Monitor</h3>
+              <Atom className="text-blue-500 animate-spin" />
+              <h3 className="text-lg font-bold text-white">Reactor Status</h3>
             </div>
             <div className="flex items-center gap-2">
-              <Wallet className="text-green-500" />
-              <span className="text-sm text-gray-400">Live Feed</span>
+              <Activity className="text-green-500" />
+              <span className="text-sm text-gray-400">
+                {currentTime.toLocaleTimeString()}
+              </span>
             </div>
           </div>
-          {priceData.length > 0 && (
+
+          <div className="space-y-6">
+            {/* Power Level */}
             <div className="bg-gray-800 rounded-lg p-4">
-              <div className="text-sm text-gray-400 mb-1">Current Price</div>
-              <div className="text-2xl font-bold text-blue-400">
-                {formatPrice(priceData[priceData.length - 1].price)}
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-gray-400">Power Level</span>
+                <Power className="text-blue-500" />
+              </div>
+              <div className="relative h-4 bg-gray-700 rounded-full overflow-hidden">
+                <div 
+                  className="absolute h-full bg-blue-500 transition-all duration-1000"
+                  style={{ width: `${power}%` }}
+                />
+              </div>
+              <div className="mt-2 text-right text-sm text-gray-400">
+                {power.toFixed(1)}% Capacity
               </div>
             </div>
-          )}
+
+            {/* Status Message */}
+            <div className="bg-gray-800 rounded-lg p-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-gray-400">Current Status</span>
+                <Coffee className="text-green-500" />
+              </div>
+              <div className={`text-lg font-medium text-blue-400 ${isAnimating ? 'animate-pulse' : ''}`}>
+                {status}
+              </div>
+            </div>
+
+            {/* Activity Indicators */}
+            <div className="grid grid-cols-3 gap-4">
+              {statusIndicators.map((item, index) => (
+                <div key={index} className="bg-gray-800 rounded-lg p-3 text-center">
+                  <div className="text-sm text-gray-400">{item.label}</div>
+                  <div className="text-white font-medium">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="space-y-6">
-          {/* Price Chart */}
-          <div className="bg-gray-800 rounded-lg p-4 h-[300px]">
-            {renderPriceChart()}
+        {/* ETH Price Monitor */}
+        <div className="bg-gray-900 rounded-lg p-6">
+          <div className="space-y-4 mb-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="text-blue-500" />
+                <h3 className="text-lg font-bold text-white">ETH Price Monitor</h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <Wallet className="text-green-500" />
+                <span className="text-sm text-gray-400">Live Feed</span>
+              </div>
+            </div>
+            {priceData.length > 0 && (
+              <div className="bg-gray-800 rounded-lg p-4">
+                <div className="text-sm text-gray-400 mb-1">Current Price</div>
+                <div className="text-2xl font-bold text-blue-400">
+                  {formatPrice(priceData[priceData.length - 1].price)}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Price Stats */}
-          <div className="grid grid-cols-3 gap-4">
-            {priceStats.map((item, index) => (
-              <div key={index} className="bg-gray-800 rounded-lg p-3 text-center">
-                <div className="text-sm text-gray-400">{item.label}</div>
-                <div className="text-white font-medium">{item.value}</div>
-              </div>
-            ))}
+          <div className="space-y-6">
+            {/* Price Chart */}
+            <div className="bg-gray-800 rounded-lg p-4 h-[300px]">
+              {loading ? (
+                <div className="flex items-center justify-center h-full">
+                  <div className="text-blue-500 flex items-center gap-2">
+                    <Atom className="animate-spin" size={20} />
+                    <span>Loading price data...</span>
+                  </div>
+                </div>
+              ) : error ? (
+                <div className="flex items-center justify-center h-full">
+                  <div className="text-red-500">{error}</div>
+                </div>
+              ) : (
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={priceData}>
+                    <XAxis 
+                      dataKey="time"
+                      stroke="#4B5563"
+                      tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                      tickFormatter={(timestamp) => new Date(timestamp).toLocaleTimeString()}
+                    />
+                    <YAxis 
+                      stroke="#4B5563"
+                      tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                      domain={['auto', 'auto']}
+                      tickFormatter={(value) => formatPrice(value)}
+                    />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Line 
+                      type="monotone" 
+                      dataKey="price" 
+                      stroke="#3B82F6" 
+                      strokeWidth={2}
+                      dot={false}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              )}
+            </div>
+
+            {/* Price Stats */}
+            <div className="grid grid-cols-3 gap-4">
+              {priceStats.map((item, index) => (
+                <div key={index} className="bg-gray-800 rounded-lg p-3 text-center">
+                  <div className="text-sm text-gray-400">{item.label}</div>
+                  <div className="text-white font-medium">{item.value}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
