@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal, ExternalLink, AtSign, Calendar, Binary } from 'lucide-react';
+import { Terminal, ExternalLink, AtSign, Calendar } from 'lucide-react';
 import { SiFarcaster } from "react-icons/si";
 import { HeroProps, QuickLink, AnimationState } from './types';
 
