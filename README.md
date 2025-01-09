@@ -1,50 +1,102 @@
-# React + TypeScript + Vite
+# Personal Website - Chris Wylde
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal website built with React, TypeScript, and Vite. This project serves as a professional landing page and link aggregator, featuring sections for professional experience, Web3 achievements, NFT collections, and social connections.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modern React with TypeScript and Vite
+- Responsive design with Tailwind CSS
+- Animated sections and transitions
+- Dark theme with custom gradients
+- Social media integration
+- NFT gallery
+- Achievement showcase
+- Professional experience timeline
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide Icons
+- Recharts for data visualization
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**Clone the repository:**
+
+```bash
+git clone https://github.com/boilerrat/personal-website
+cd personal-website
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+**Install dependencies:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  ```bash
+  npm install
+  ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+**Start the development server:**
+
+```bash
+npm run dev
 ```
+
+**Build for production:**
+
+```bash
+npm run build
+```
+
+## 🌐 Domain Transfer to Vercel
+
+### Current Setup
+
+- Domains: [www.chriswylde.xyz](https://www.chriswylde.xyz) and [www.boilerrat.xyz](https://www.boilerra.xyz)
+- Registrar: Namecheap
+- Current Host: Netlify
+- Target Host: Vercel
+
+### Steps to Transfer Domain to Vercel
+
+1. **Add Domain to Vercel Project**
+   - Go to your Vercel project dashboard
+   - Navigate to "Settings" > "Domains"
+   - Add your domains: `chriswylde.xyz` and `boilerrat.xyz`
+   - Vercel will provide nameserver information
+
+2. **Update Namecheap DNS Settings**
+   - Log in to Namecheap
+   - Go to "Domain List" and select your domain
+   - Click "Manage"
+   - Select "Custom DNS" under "Nameservers"
+   - Add Vercel's nameservers:
+
+     ```bash
+     ns1.vercel-dns.com
+     ns2.vercel-dns.com
+     ```
+
+3. **Wait for Propagation**
+   - DNS changes can take up to 48 hours to propagate
+   - You can check propagation status in Vercel's dashboard
+
+4. **SSL/HTTPS Setup**
+   - Vercel automatically provisions SSL certificates
+   - No additional configuration needed
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/boilerrat/personal-website/issues).
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Contact
+
+- Website: [chriswylde.xyz](https://www.chriswylde.xyz)
+- Twitter: [@boilerrat](https://twitter.com/boilerrat)
+- Farcaster: [@boiler](https://warpcast.com/boiler)
+- Email: mailto [128boilerrat@gmail.com](mailto:128boilerrat@gmail.com)
