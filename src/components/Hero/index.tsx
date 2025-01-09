@@ -78,10 +78,10 @@ export const Hero: React.FC<HeroProps> = ({
   }, [introText]);
 
   return (
-    <div className={`min-h-screen bg-black text-white flex flex-col items-center justify-center p-4 ${className}`}>
-      <div className="w-full max-w-3xl">
+    <div className={`min-h-screen bg-black text-white flex flex-col items-center justify-center ${className}`}>
+      <div className="w-full max-w-3xl px-4">
         {/* Terminal Window */}
-        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl mb-8">
+        <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl mb-6">
           <div className="bg-gray-800 px-4 py-2 flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -95,9 +95,9 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Quick Links Section */}
         {animationState.showContent && (
-          <div className="space-y-8 opacity-0 animate-fade-in">
+          <div className="space-y-6 opacity-0 animate-fade-in">
             <div className="text-center">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-4">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-3">
                 Bridging Industry & Web3
               </h1>
               <p className="text-gray-400 text-lg">
@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {quickLinks.map((link, index) => (
                 <a
                   key={index}

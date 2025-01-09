@@ -26,9 +26,11 @@ const NFTCard: React.FC<NFTCardProps> = ({
         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
       />
       {/* Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
-        transition-opacity duration-300 flex items-end justify-between p-6
-        ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+      <div 
+        className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
+          transition-opacity duration-300 flex items-end justify-between p-6
+          ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+      >
         <h3 className="text-white text-xl font-medium">{name}</h3>
         {link && (
           <a
@@ -80,11 +82,11 @@ export const NFTGrid: React.FC<NFTGridProps> = ({
   nfts = defaultNFTs
 }) => {
   const [hoveredNFT, setHoveredNFT] = useState<number | null>(null);
-  
+
   return (
-    <section id="nfts" className={`min-h-screen bg-black p-8 flex items-center justify-center ${className}`}>
-      <div className="max-w-6xl w-full">
-        <div className="mb-8">
+    <div className={`bg-black ${className}`}>
+      <div className="max-w-6xl w-full mx-auto">
+        <div className="mb-6">
           <div className="flex items-center gap-4">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               PFP's
@@ -93,7 +95,7 @@ export const NFTGrid: React.FC<NFTGridProps> = ({
           <p className="text-gray-400 text-lg mt-2">My Online Appearances</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {nfts.map((nft) => (
             <NFTCard
               key={nft.id}
@@ -104,6 +106,6 @@ export const NFTGrid: React.FC<NFTGridProps> = ({
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };

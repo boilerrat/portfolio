@@ -6,39 +6,44 @@ import { Achievements } from './components/Achievements';
 import { Skills } from './components/Skills';
 import { NFTGrid } from './components/NFTGrid';
 import { Contact } from './components/Contact';
+import ReactorStatus from './components/ReactorStatus';
 
 const App: FC = () => {
   return (
-    // Add base font for general content
     <div className="bg-black font-['Space_Mono']">
-      {/* Navigation can use Space Mono for clean reading */}
       <Navigation />
       
       <main className="relative">
-        {/* Hero section uses Courier Prime for the terminal look */}
-        <section id="home" className="relative z-10 font-['Courier_Prime']">
+        {/* Hero keeps min-h-screen as it's the landing section */}
+        <section id="home" className="relative z-10 min-h-screen font-['Courier_Prime']">
           <Hero />
         </section>
 
-        {/* Content sections use Space Mono for better readability */}
-        <div className="relative z-10">
-          <Expertise />
-        </div>
+        {/* Content sections with reduced spacing */}
+        <div className="space-y-16 relative z-10"> {/* Main content wrapper with consistent spacing */}
+          <section className="py-12">
+            <Expertise />
+          </section>
 
-        <div className="relative z-10">
-          <Achievements />
-        </div>
+          <section className="py-12">
+            <ReactorStatus />
+          </section>
 
-        <div className="relative z-10">
-          <Skills />
-        </div>
+          <section className="py-12">
+            <Achievements />
+          </section>
 
-        <div className="relative z-10">
-          <NFTGrid />
-        </div>
+          <section className="py-12">
+            <Skills />
+          </section>
 
-        <div className="relative z-10">
-          <Contact />
+          <section className="py-12">
+            <NFTGrid />
+          </section>
+
+          <section className="py-12">
+            <Contact />
+          </section>
         </div>
 
         {/* Background Elements */}

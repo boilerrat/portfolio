@@ -59,12 +59,11 @@ const GrantChart: React.FC<GrantChartProps> = ({ data, className = '' }) => (
           tickLine={false}
         />
         <YAxis
-            dataKey="name"
-            type="category"
-            width={200}
-            tick={(props) => <CustomYAxisTick {...props} />}
+          dataKey="name"
+          type="category"
+          width={200}
+          tick={(props) => <CustomYAxisTick {...props} />}
         />
-
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="amount" fill="#3b82f6" radius={[0, 4, 4, 0]} />
       </BarChart>
@@ -86,9 +85,9 @@ const AchievementCard: React.FC<AchievementCardProps> = ({ title, description, d
 
 export const Achievements: React.FC<AchievementsProps> = ({ className = '', grants = defaultGrants, achievements = defaultAchievements }) => {
   return (
-    <section id="achievements" className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-6xl mx-auto space-y-16">
-        <div className="space-y-8">
+    <div className={`bg-black text-white ${className}`}>
+      <div className="max-w-6xl mx-auto space-y-12">
+        <div className="space-y-6">
           <div className="flex items-center gap-4">
             <BarChart3 size={32} className="text-green-500" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
@@ -97,7 +96,7 @@ export const Achievements: React.FC<AchievementsProps> = ({ className = '', gran
           </div>
           <GrantChart data={grants} />
         </div>
-        <div className="space-y-8">
+        <div className="space-y-6">
           <div className="flex items-center gap-4">
             <Award size={32} className="text-yellow-500" />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
@@ -111,6 +110,6 @@ export const Achievements: React.FC<AchievementsProps> = ({ className = '', gran
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

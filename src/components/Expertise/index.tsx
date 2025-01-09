@@ -35,7 +35,7 @@ const Section: React.FC<SectionProps> = ({
   gradientTo,
   id
 }) => (
-  <section id={id} className="space-y-8">
+  <section id={id} className="space-y-6">
     <div className="flex items-center gap-4">
       <Icon size={32} className={`text-${gradientFrom}`} />
       <h2 className={`text-3xl font-bold bg-gradient-to-r from-${gradientFrom} to-${gradientTo} bg-clip-text text-transparent`}>
@@ -107,8 +107,8 @@ export const Expertise: React.FC<ExpertiseProps> = ({
   web3Experience = defaultWeb3Experience
 }) => {
   return (
-    <div className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-6xl mx-auto space-y-16">
+    <div className={`bg-black text-white ${className}`}>
+      <div className="max-w-6xl mx-auto space-y-12">
         <Section
           id="industry"
           title="Industrial Expertise"

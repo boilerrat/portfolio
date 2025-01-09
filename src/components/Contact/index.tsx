@@ -44,7 +44,7 @@ const CategorySection: FC<CategorySectionProps> = ({
   links,
   className = ''
 }) => (
-  <div className={`space-y-6 ${className}`}>
+  <div className={`space-y-4 ${className}`}>
     <h3 className="text-xl font-medium text-gray-400">
       {category}
     </h3>
@@ -61,14 +61,14 @@ export const Contact: FC<ContactProps> = ({
   socialLinks = defaultSocialLinks
 }) => {
   return (
-    <section id="contact" className={`min-h-screen bg-black text-white p-8 ${className}`}>
-      <div className="max-w-6xl mx-auto space-y-8">
-        <div className="flex items-center gap-4">
+    <div className={`bg-black text-white ${className}`}>
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-4 mb-6">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
             Connect With Me
           </h2>
         </div>
-        <div className="grid gap-12 mt-8">
+        <div className="grid gap-8">
           {socialLinks.map((category, index) => (
             <CategorySection
               key={index}
@@ -78,7 +78,7 @@ export const Contact: FC<ContactProps> = ({
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
